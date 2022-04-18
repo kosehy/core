@@ -1406,7 +1406,7 @@ S3FileSystem::FileExists(const std::string& path, bool* exists)
 
   auto head_object_outcome = client_.HeadObject(head_request);
   printf("before testing head_bucket_output!\n");
-  remote_ip_addr = head_object_outcome.GetError().GetRemoteHostIpAddress()
+  const Aws::String& remote_ip_addr = head_object_outcome.GetError().GetRemoteHostIpAddress()
   cout << "remote host ip address: " << remote_ip_addr.data() << endl;
   // printf(head_object_outcome.GetError());
   if (!head_object_outcome.IsSuccess()) {
