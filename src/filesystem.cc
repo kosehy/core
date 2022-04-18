@@ -1405,8 +1405,8 @@ S3FileSystem::FileExists(const std::string& path, bool* exists)
   head_request.SetKey(object.c_str());
 
   auto head_object_outcome = client_.HeadObject(head_request);
-  // printf("before testing head_bucket_output!\n");
-  printf(head_object_outcome.GetError());
+  printf("before testing head_bucket_output!\n");
+  // printf(head_object_outcome.GetError());
   if (!head_object_outcome.IsSuccess()) {
     if (head_object_outcome.GetError().GetErrorType() !=
         s3::S3Errors::RESOURCE_NOT_FOUND) {
